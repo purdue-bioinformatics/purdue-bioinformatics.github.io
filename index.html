@@ -119,24 +119,52 @@
     }
 
     .events {
-      background-color: #f8f8f8;
-      padding: 50px 20px;
-    }
+  padding: 60px 20px;
+  background: #f9f9f9;
+  text-align: center;
+}
 
-    .event-card {
-      background-color: #000000;
-      color: #CFB991;
-      border-radius: 12px;
-      padding: 25px;
-      max-width: 500px;
-      margin: 20px auto;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
+.events h2 {
+  font-size: 2.5em;
+  color: #000000;
+  margin-bottom: 40px;
+}
 
-    .event-card h3 {
-      margin: 0 0 10px;
-      font-size: 1.5rem;
-    }
+.event-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000000;
+  color: #CFB991;
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.event-date {
+  font-size: 2em;
+  font-weight: bold;
+  background: #CFB991;
+  color: #000000;
+  padding: 20px;
+  border-radius: 12px;
+  min-width: 100px;
+}
+
+.event-image img {
+  width: 200px;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+}
+
+.event-details {
+  text-align: left;
+  max-width: 400px;
+}
 
 
     /* Contact section */
@@ -218,13 +246,18 @@
   </section>
 
 <section id="events" class="events">
-    <h2>Upcoming Events</h2>
-    <div class="event-card">
-      <h3>September X</h3>
-      <img src="logo.png" alt="callout flyer"/>
-      <p>Join us to learn more about the club and enjoy free pizza!</p>
+  <h2>Upcoming Events</h2>
+  <div class="event-card">
+    <div class="event-date">Sep 4</div>
+    <div class="event-image">
+      <img src="logo.png" alt="Callout Flyer">
     </div>
-  </section>
+    <div class="event-details">
+      <h3>Learn More About the Club</h3>
+      <p>Come meet us on September X to learn more about the Bioinformatics Club and enjoy free pizza!</p>
+    </div>
+  </div>
+</section>
 
 
   <section id="team" class="team">

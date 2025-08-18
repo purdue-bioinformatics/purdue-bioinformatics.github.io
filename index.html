@@ -1,177 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Purdue Bioinformatics Club</title>
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    /* Reset & base */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
-      background: #ffffff;
-      color: #222;
+      color: #333;
       scroll-behavior: smooth;
     }
+
     header {
-      background: #003366;
+      background: url('AdobeStock_245414150_Preview.jpeg') no-repeat center center/cover;
+      height: 100vh;
       color: white;
-      padding: 15px 20px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    header h1 {
-      font-size: 1.8em;
-    }
-    nav {
-      margin-top: 10px;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-size: 1em;
-      transition: color 0.2s ease;
-    }
-    nav a:hover {
-      color: #ffcc00;
-    }
-    section {
-      padding: 80px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    section h2 {
-      text-align: center;
-      font-size: 2em;
-      margin-bottom: 20px;
-      color: #003366;
-    }
-    .about, .events, .contact {
-      background: #f5f7fa;
-      border-radius: 12px;
-      padding: 40px;
-      margin-top: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-    .events ul {
-      list-style: none;
-    }
-    .events li {
-      background: white;
-      margin: 12px 0;
-      padding: 12px 16px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    /* Contact section */
-    .contact-grid {
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
-      gap: 25px;
-      margin-top: 25px;
-    }
-    .contact-item a {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      font-size: 1.2em;
-      text-decoration: none;
-      color: #222;
-      background: white;
-      padding: 12px 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
-    }
-    .contact-item a:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-      color: #0077cc;
-    }
-    .contact-icon {
-      font-size: 1.6em;
-      color: #003366;
-    }
-    footer {
       text-align: center;
-      padding: 20px;
-      background: #003366;
-      color: white;
-      margin-top: 40px;
+      position: relative;
     }
-    /* Responsive */
-    @media (max-width: 600px) {
-      nav a {
-        display: block;
-        margin: 8px 0;
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      z-index: 1;
+      color: gold;
+    }
+
+    nav {
+      background: black;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: gold;
+      text-decoration: none;
+      padding: 15px;
+      display: block;
+      transition: background 0.3s;
+    }
+
+    nav ul li a:hover {
+      background: gold;
+      color: black;
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .team-grid {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .member img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid gold;
+    }
+
+    .member h3 {
+      margin-top: 10px;
+      color: black;
+    }
+
+    /* Contact Us Section */
+    .contact-icons {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      text-align: center;
+    }
+
+    .contact-item a {
+      text-decoration: none;
+      color: black;
+      font-size: 1.2rem;
+    }
+
+    .contact-item img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background: black;
+      color: gold;
+      text-align: center;
+      padding: 15px 0;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
       }
-      .about, .events, .contact {
-        padding: 25px;
+
+      nav ul {
+        flex-direction: column;
       }
-      .contact-item a {
-        font-size: 1em;
+
+      nav ul li {
+        margin: 5px 0;
+      }
+
+      .team-grid {
+        flex-direction: column;
       }
     }
   </style>
 </head>
 <body>
-  <header>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#team">Executive Board</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <header id="home">
     <h1>Purdue Bioinformatics Club</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#events">Events</a>
-      <a href="#contact">Contact</a>
-    </nav>
   </header>
 
-  <section id="about" class="about">
+  <section id="about">
     <h2>About Us</h2>
-    <p>
-      The Purdue Bioinformatics Club brings together students interested in computational biology, data science, and biotechnology. 
-      We aim to foster collaboration, learning, and research opportunities at the intersection of biology and computer science.
-    </p>
+    <p>We are the Purdue Bioinformatics Club, a community of students passionate about computational biology, genomics, and data-driven life sciences. Our goal is to promote collaboration, learning, and innovation at the intersection of biology and computer science.</p>
   </section>
 
-  <section id="events" class="events">
-    <h2>Upcoming Events</h2>
-    <ul>
-      <li><strong>Intro to Bioinformatics Workshop</strong> - September 10, 2025</li>
-      <li><strong>Guest Speaker: Computational Genomics</strong> - October 5, 2025</li>
-      <li><strong>Hackathon: Data Meets DNA</strong> - November 12, 2025</li>
-    </ul>
+  <section id="team" class="team">
+    <h2>Executive Board</h2>
+    <div class="team-grid">
+      <div class="member">
+        <img src="paras.jpg" alt="Paras Punater">
+        <h3>Paras Punater</h3>
+      </div>
+      <div class="member">
+        <img src="shreya.jpg" alt="Shreya Krishnan">
+        <h3>Shreya Krishnan</h3>
+      </div>
+      <div class="member">
+        <img src="karthik.jpg" alt="Karthik Varigonda">
+        <h3>Karthik Varigonda</h3>
+      </div>
+    </div>
   </section>
 
-  <section id="contact" class="contact">
+  <section id="contact">
     <h2>Contact Us</h2>
-    <div class="contact-grid">
+    <div class="contact-icons">
       <div class="contact-item">
         <a href="mailto:purduebioinformaticsclub@gmail.com">
-          <i class="fas fa-envelope contact-icon"></i>
-          <span>purduebioinformaticsclub@gmail.com</span>
+          <img src="email-icon.png" alt="Email Icon">
+          <div>purduebioinformaticsclub@gmail.com</div>
         </a>
       </div>
       <div class="contact-item">
         <a href="https://instagram.com/purdue.bioinformatics" target="_blank">
-          <i class="fab fa-instagram contact-icon"></i>
-          <span>@purdue.bioinformatics</span>
+          <img src="instagram-icon.png" alt="Instagram Icon">
+          <div>@purdue.bioinformatics</div>
         </a>
       </div>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Purdue Bioinformatics Club. All Rights Reserved.</p>
+    <p>&copy; 2025 Purdue Bioinformatics Club</p>
   </footer>
 </body>
 </html>

@@ -3,300 +3,175 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bioinformatics Club | Purdue</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  <title>Purdue Bioinformatics Club</title>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    /* Reset & base */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Roboto', sans-serif;
-      scroll-behavior: smooth; /* smooth scrolling */
     }
-
     body {
+      font-family: Arial, sans-serif;
       line-height: 1.6;
-      color: #333;
-      background-color: #fafafa;
+      background: #ffffff;
+      color: #222;
+      scroll-behavior: smooth;
     }
-
     header {
-      background: #fff;
-      border-bottom: 2px solid #e6e6e6;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      background: #003366;
+      color: white;
+      padding: 15px 20px;
+      text-align: center;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
-
-    header img {
-      height: 50px;
+    header h1 {
+      font-size: 1.8em;
     }
-
     nav {
-      display: flex;
-      align-items: center;
+      margin-top: 10px;
     }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-    }
-
-    nav ul li a {
+    nav a {
+      color: white;
+      margin: 0 15px;
       text-decoration: none;
-      color: #111;
-      font-weight: 500;
-      transition: color 0.3s ease;
+      font-size: 1em;
+      transition: color 0.2s ease;
     }
-
-    nav ul li a:hover {
-      color: #b89b2d;
+    nav a:hover {
+      color: #ffcc00;
     }
-
-    /* Hamburger menu */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-    }
-
-    .hamburger span {
-      width: 25px;
-      height: 3px;
-      background: #111;
-      border-radius: 2px;
-      transition: 0.3s;
-    }
-
-    /* Hero Section */
-    .hero {
-      background: url("banner.jpg") center/cover no-repeat;
-      height: 80vh;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-      color: #fff;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.65);
-      z-index: 0;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 700px;
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      color: #b89b2d;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-
     section {
-      padding: 60px 30px;
-    }
-
-    section h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 2rem;
-      color: #111;
-    }
-
-    .about, .team, .contact {
+      padding: 80px 20px;
       max-width: 1000px;
       margin: auto;
     }
-
-    .about p {
+    section h2 {
       text-align: center;
-      font-size: 1.1rem;
-      line-height: 1.7;
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #003366;
     }
-
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 30px;
-      margin-top: 30px;
+    .about, .events, .contact {
+      background: #f5f7fa;
+      border-radius: 12px;
+      padding: 40px;
+      margin-top: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
-
-    .member {
-      background: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    .events ul {
+      list-style: none;
     }
-
-    .member img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 15px;
-      border: 3px solid #b89b2d;
+    .events li {
+      background: white;
+      margin: 12px 0;
+      padding: 12px 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
-
-    .member h3 {
-      margin-bottom: 8px;
-      font-size: 1.2rem;
-      color: #111;
-    }
-
-    .contact form {
+    /* Contact section */
+    .contact-grid {
       display: flex;
       flex-direction: column;
+      align-items: center;
+      gap: 25px;
+      margin-top: 25px;
+    }
+    .contact-item a {
+      display: flex;
+      align-items: center;
       gap: 15px;
-      max-width: 600px;
-      margin: auto;
+      font-size: 1.2em;
+      text-decoration: none;
+      color: #222;
+      background: white;
+      padding: 12px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
     }
-
-    .contact input, .contact textarea {
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
+    .contact-item a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      color: #0077cc;
     }
-
-    .contact button {
-      padding: 12px;
-      background: #b89b2d;
-      border: none;
-      border-radius: 8px;
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s ease;
+    .contact-icon {
+      font-size: 1.6em;
+      color: #003366;
     }
-
-    .contact button:hover {
-      background: #8a7320;
-    }
-
     footer {
       text-align: center;
       padding: 20px;
-      background: #111;
-      color: #fff;
+      background: #003366;
+      color: white;
+      margin-top: 40px;
     }
-
-    footer p {
-      font-size: 0.9rem;
-    }
-
-    /* Mobile responsiveness */
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        background: #fff;
-        padding: 15px;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+    /* Responsive */
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 8px 0;
       }
-
-      nav ul.show {
-        display: flex;
+      .about, .events, .contact {
+        padding: 25px;
       }
-
-      .hamburger {
-        display: flex;
+      .contact-item a {
+        font-size: 1em;
       }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <img src="logo.png" alt="Bioinformatics Club Logo">
+    <h1>Purdue Bioinformatics Club</h1>
     <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#team">Executive Board</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-      </ul>
-      <div class="hamburger" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      <a href="#about">About</a>
+      <a href="#events">Events</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h1>Bioinformatics Club</h1>
-      <p>Exploring the intersection of biology and technology at Purdue University</p>
-    </div>
-  </section>
-
   <section id="about" class="about">
     <h2>About Us</h2>
-    <p>The Bioinformatics Club at Purdue is dedicated to exploring the exciting intersection of biology, computer science, and data analysis. We host workshops, speaker events, and collaborative projects to help students gain practical skills and apply them to real-world biological problems.</p>
+    <p>
+      The Purdue Bioinformatics Club brings together students interested in computational biology, data science, and biotechnology. 
+      We aim to foster collaboration, learning, and research opportunities at the intersection of biology and computer science.
+    </p>
   </section>
 
-  <section id="team" class="team">
-  <h2>Executive Board</h2>
-  <div class="team-grid">
-    <div class="member">
-      <img src="paras.jpg" alt="Paras Punater">
-      <h3>Paras Punater</h3>
-    </div>
-    <div class="member">
-      <img src="shreya.jpg" alt="Shreya Krishnan">
-      <h3>Shreya Krishnan</h3>
-    </div>
-    <div class="member">
-      <img src="karthik.jpg" alt="Karthik Varigonda">
-      <h3>Karthik Varigonda</h3>
-    </div>
-  </div>
-</section>
-
+  <section id="events" class="events">
+    <h2>Upcoming Events</h2>
+    <ul>
+      <li><strong>Intro to Bioinformatics Workshop</strong> - September 10, 2025</li>
+      <li><strong>Guest Speaker: Computational Genomics</strong> - October 5, 2025</li>
+      <li><strong>Hackathon: Data Meets DNA</strong> - November 12, 2025</li>
+    </ul>
+  </section>
 
   <section id="contact" class="contact">
     <h2>Contact Us</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <a href="mailto:purduebioinformaticsclub@gmail.com">
+          <i class="fas fa-envelope contact-icon"></i>
+          <span>purduebioinformaticsclub@gmail.com</span>
+        </a>
+      </div>
+      <div class="contact-item">
+        <a href="https://instagram.com/purdue.bioinformatics" target="_blank">
+          <i class="fab fa-instagram contact-icon"></i>
+          <span>@purdue.bioinformatics</span>
+        </a>
+      </div>
+    </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Bioinformatics Club at Purdue University. All rights reserved.</p>
+    <p>&copy; 2025 Purdue Bioinformatics Club. All Rights Reserved.</p>
   </footer>
-
-  <script>
-    function toggleMenu() {
-      document.querySelector("nav ul").classList.toggle("show");
-    }
-  </script>
 </body>
 </html>
